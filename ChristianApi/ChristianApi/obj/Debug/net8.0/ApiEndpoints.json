@@ -1,0 +1,29 @@
+[
+  {
+    "ContainingType": "ChristianApi.Controllers.BibleController",
+    "Method": "GetBibleVerse",
+    "RelativePath": "api/Bible",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ChristianApi.Models.BibleVerse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetBibleVerseById"
+  }
+]

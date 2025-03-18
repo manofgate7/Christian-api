@@ -1,6 +1,6 @@
 @ChristianApi_HostAddress = http://localhost:5090
 
-GET {{ChristianApi_HostAddress}}/weatherforecast/
+GET {{ChristianApi_HostAddress}}/api/Bible/
 Accept: application/json
 
 ###

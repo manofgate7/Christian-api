@@ -1,3 +1,4 @@
 /.vs
 /ChristianApi/.vs
 ChristianApi/ChristianApi/ChristianApi.csproj.user
+/ChristianApi/ChristianApi/bin/Debug

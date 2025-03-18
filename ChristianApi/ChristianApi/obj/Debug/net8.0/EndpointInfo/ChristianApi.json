@@ -1,0 +1,71 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ChristianApi",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Bible": {
+      "get": {
+        "tags": [
+          "Bible"
+        ],
+        "operationId": "GetBibleVerseById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BibleVerse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BibleVerse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BibleVerse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BibleVerse": {
+        "type": "object",
+        "properties": {
+          "bibleVerseId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "verseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "verse": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
