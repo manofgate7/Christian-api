@@ -1,6 +1,6 @@
 @ChristianApi_HostAddress = http://localhost:5090
 
-GET {{ChristianApi_HostAddress}}/api/Bible/
+GET {{ChristianApi_HostAddress}}/api/Bible/GetBibleVerseById/
 Accept: application/json
 
 ###

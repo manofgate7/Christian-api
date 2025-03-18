@@ -19,11 +19,18 @@ namespace ChristianApi.Controllers
             _verseServices = bibleVerseServices;
         }
 
-        [HttpGet(Name = "GetBibleVerseById")]
-        //[Route("/GetBibleVerseById/{id:int}")]
-        public BibleVerse GetBibleVerse([FromQuery] int id )
+        [HttpGet("GetBibleVerseById")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<BibleVerse> GetBibleVerse([FromQuery] int id )
         {
-            return _verseServices.GetBibleVerseById(id);
+            BibleVerse result =  _verseServices.GetBibleVerseById(id);
+            if (result.BibleVerseId == 0)
+            {
+               return NotFound();
+            }
+
+            return result;
         }
     }
 }

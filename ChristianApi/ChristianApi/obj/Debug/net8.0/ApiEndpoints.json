@@ -2,7 +2,7 @@
   {
     "ContainingType": "ChristianApi.Controllers.BibleController",
     "Method": "GetBibleVerse",
-    "RelativePath": "api/Bible",
+    "RelativePath": "api/Bible/GetBibleVerseById",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -22,8 +22,16 @@
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
       }
-    ],
-    "EndpointName": "GetBibleVerseById"
+    ]
   }
 ]
