@@ -6,5 +6,6 @@ namespace ChristianApi.Services.Interfaces
     {
         BibleVerse GetBibleVerseById(int bibleVerseId);
         BibleVerse GetBibleVerseByVerseNumber(string verseNumber);
+        BibleVerse GetBibleVerse(int? bibleVerseId, string? verseNumber);
     }
 }

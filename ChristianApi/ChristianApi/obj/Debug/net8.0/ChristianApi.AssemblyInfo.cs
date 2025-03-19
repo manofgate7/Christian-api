@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChristianApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d931a809de25b938047fd9fd2a182802bc7c268")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a0953a1f7d975a6334a6127f8c6cee0c3fa2b44")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChristianApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChristianApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

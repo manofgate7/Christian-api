@@ -26,5 +26,19 @@ namespace ChristianApi.Services
         {
             return bibleVerseList.FirstOrDefault(b=> b.VerseNumber == verseNumber) ?? new BibleVerse();
         }
+
+        public BibleVerse GetBibleVerse(int? bibleVerseId, string? verseNumber)
+        {
+            BibleVerse bibleVerse = new();
+            if (bibleVerseId.HasValue)
+            {
+                bibleVerse = GetBibleVerseById(bibleVerseId.Value);
+            }
+            if (bibleVerse.BibleVerseId == 0 && !string.IsNullOrEmpty(verseNumber))
+            {
+                bibleVerse = GetBibleVerseByVerseNumber(verseNumber);
+            }
+            return bibleVerse;
+        }
     }
 }

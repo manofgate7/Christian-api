@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Bible/GetBibleVerseById": {
+    "/api/Bible/GetBibleVerse": {
       "get": {
         "tags": [
           "Bible"
@@ -17,6 +17,13 @@
             "schema": {
               "type": "integer",
               "format": "int32"
+            }
+          },
+          {
+            "name": "verseNumber",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           }
         ],

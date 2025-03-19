@@ -19,12 +19,13 @@ namespace ChristianApi.Controllers
             _verseServices = bibleVerseServices;
         }
 
-        [HttpGet("GetBibleVerseById")]
+        [HttpGet("GetBibleVerse")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<BibleVerse> GetBibleVerse([FromQuery] int id )
+        public ActionResult<BibleVerse> GetBibleVerse([FromQuery] int? id, [FromQuery] string? verseNumber )
         {
-            BibleVerse result =  _verseServices.GetBibleVerseById(id);
+            
+            BibleVerse result =  _verseServices.GetBibleVerse(id, verseNumber);
             if (result.BibleVerseId == 0)
             {
                return NotFound();
