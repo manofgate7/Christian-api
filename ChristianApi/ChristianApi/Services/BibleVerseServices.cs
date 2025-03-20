@@ -40,5 +40,38 @@ namespace ChristianApi.Services
             }
             return bibleVerse;
         }
+
+        public void SaveBibleVerse(BibleVerse bibleVerse)
+        {
+            SetBibleVserveId(bibleVerse);
+           
+            //do an update
+            if(bibleVerse.BibleVerseId > 0)
+            {
+                bibleVerseList.RemoveAll(bl => bl.BibleVerseId == bibleVerse.BibleVerseId);
+            }
+            else
+            {
+                bibleVerse.BibleVerseId = bibleVerseList.Max(bl => bl.BibleVerseId) + 1;
+            }
+            //insert new one
+            bibleVerseList.Add(bibleVerse);
+        }
+
+        internal void SetBibleVserveId(BibleVerse bibleVerse)
+        {
+            var verses = bibleVerseList.Where(bl => bl.VerseNumber == bibleVerse.VerseNumber || bl.Verse == bibleVerse.Verse);
+            if(verses.Count() > 1)
+            {
+                throw new Exception("Duplicate verses or versenumbers");
+            }
+            if(verses.Any())
+            {
+                bibleVerse.BibleVerseId = verses.First().BibleVerseId;
+            }
+            
+        }
+
+       
     }
 }

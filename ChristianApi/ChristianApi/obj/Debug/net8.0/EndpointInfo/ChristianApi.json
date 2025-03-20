@@ -70,6 +70,34 @@
           }
         }
       }
+    },
+    "/api/Bible/SaveBibleVerse": {
+      "post": {
+        "tags": [
+          "Bible"
+        ],
+        "parameters": [
+          {
+            "name": "verseNumber",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "verse",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {

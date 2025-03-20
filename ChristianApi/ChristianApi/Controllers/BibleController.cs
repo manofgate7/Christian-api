@@ -33,5 +33,12 @@ namespace ChristianApi.Controllers
 
             return result;
         }
+
+        [HttpPost("SaveBibleVerse")]
+        public ActionResult SaveBibleVerse(string verseNumber, string verse)
+        {
+            _verseServices.SaveBibleVerse(new BibleVerse() { Verse = verse, VerseNumber = verseNumber });
+            return Ok();
+        }
     }
 }

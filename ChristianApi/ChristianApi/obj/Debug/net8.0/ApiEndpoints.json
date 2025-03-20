@@ -38,5 +38,26 @@
         "StatusCode": 404
       }
     ]
+  },
+  {
+    "ContainingType": "ChristianApi.Controllers.BibleController",
+    "Method": "SaveBibleVerse",
+    "RelativePath": "api/Bible/SaveBibleVerse",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "verseNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "verse",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
