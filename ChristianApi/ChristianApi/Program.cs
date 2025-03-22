@@ -1,3 +1,4 @@
+using ChristianApi.Data;
 using ChristianApi.Models;
 using ChristianApi.Services;
 using ChristianApi.Services.Interfaces;
@@ -12,6 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IBibleVerseService, BibleVerseServices>();
+builder.Services.AddScoped<IBibleVerseData, BibleVerseData>();
 
 var app = builder.Build();
 

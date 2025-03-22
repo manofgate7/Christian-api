@@ -1,5 +1,9 @@
-﻿using ChristianApi.Models;
+﻿using ChristianApi.Data;
+using ChristianApi.Models;
 using ChristianApi.Services.Interfaces;
+using Microsoft.AspNetCore.Components.Web;
+using System.IO;
+using System.Text;
 
 namespace ChristianApi.Services
 {
@@ -7,15 +11,14 @@ namespace ChristianApi.Services
     {
         private List<BibleVerse> bibleVerseList = new List<BibleVerse>();
 
-        private void SetBibleVerses()
+        private readonly IBibleVerseData _bibleVerseData;
+
+       
+
+        public BibleVerseServices(IBibleVerseData bibleVerseData)
         {
-            bibleVerseList.Add(new BibleVerse() { BibleVerseId = 1, VerseNumber = "John 3:16", Verse = "For God so loved the world that he gave his only begotten Son, that whosoever believeth in him should not perish, but have eternal life" });
-            bibleVerseList.Add(new BibleVerse() { BibleVerseId = 2, VerseNumber = "Romans 3:10-12", Verse = "As it is written: 'There is no one righteous, not even one; there is no one who understands; there is no one who seeks God. All have turned away, they have together become worthless; there is no one who does good, not even one.'" });
-            bibleVerseList.Add(new BibleVerse() { BibleVerseId = 3, VerseNumber = "Ephisans 5:21", Verse = "Submit to one another out of reverence for Christ" });
-        }
-        public BibleVerseServices()
-        {
-            SetBibleVerses();
+            _bibleVerseData = bibleVerseData;
+            bibleVerseList = _bibleVerseData.ReadFile();
         }
         
         public BibleVerse GetBibleVerseById(int bibleVerseId)
@@ -43,7 +46,7 @@ namespace ChristianApi.Services
 
         public void SaveBibleVerse(BibleVerse bibleVerse)
         {
-            SetBibleVserveId(bibleVerse);
+            SetBibleVerseId(bibleVerse);
            
             //do an update
             if(bibleVerse.BibleVerseId > 0)
@@ -52,13 +55,15 @@ namespace ChristianApi.Services
             }
             else
             {
-                bibleVerse.BibleVerseId = bibleVerseList.Max(bl => bl.BibleVerseId) + 1;
+                var max = bibleVerseList.Max(bl => bl.BibleVerseId);
+                bibleVerse.BibleVerseId = max + 1;
             }
             //insert new one
             bibleVerseList.Add(bibleVerse);
+            _bibleVerseData.WriteFile(bibleVerse, true);
         }
 
-        internal void SetBibleVserveId(BibleVerse bibleVerse)
+        internal void SetBibleVerseId(BibleVerse bibleVerse)
         {
             var verses = bibleVerseList.Where(bl => bl.VerseNumber == bibleVerse.VerseNumber || bl.Verse == bibleVerse.Verse);
             if(verses.Count() > 1)
