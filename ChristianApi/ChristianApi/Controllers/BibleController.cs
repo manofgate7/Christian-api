@@ -40,5 +40,59 @@ namespace ChristianApi.Controllers
             _verseServices.SaveBibleVerse(new BibleVerse() { Verse = verse, VerseNumber = verseNumber });
             return Ok();
         }
-    }
+
+        [HttpGet("GetBibleVerseRankById")]
+		[ProducesResponseType(StatusCodes.Status200OK)]
+		[ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<BibleVerseRank> GetBibleVerseRankById(int Id)
+        {
+            BibleVerseRank result = _verseServices.GetBibleVerseRankById(Id);
+			if (result.BibleVerseRankId == 0)
+			{
+				return NotFound();
+			}
+
+			return result;
+		}
+
+        [HttpGet("GetRanksByBibleVerse")]
+		[ProducesResponseType(StatusCodes.Status200OK)]
+		[ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<List<BibleVerseRank>> GetRanksByBibleVerse(int bibleVerseId)
+        {
+            List<BibleVerseRank> result = _verseServices.GetBibleVerseRanksByVerseId(bibleVerseId);
+            if(result.Count == 0)
+            {
+                return NotFound();
+            }
+            return result;
+        }
+
+		[HttpGet("GetAverageRankByBibleVerse")]
+		[ProducesResponseType(StatusCodes.Status200OK)]
+		[ProducesResponseType(StatusCodes.Status404NotFound)]
+		public ActionResult<double> GetAverageRankByBibleVerse(int bibleVerseId)
+		{
+			double result = _verseServices.GetAverageBibleVerseRankForVerse(bibleVerseId);
+            if(result == 0)
+            {
+                return NotFound();
+            }
+			
+			return result;
+		}
+
+		[HttpPost("SaveBibleVerseRank")]
+		public ActionResult SaveBibleVerseRank(int? verseRankId, int verseId, int rank)
+		{
+			_verseServices.SaveBibleVerseRank(
+                    new BibleVerseRank() { 
+                        BibleVerseRankId = verseRankId ?? 0,
+                        BibleVerseId = verseId,
+                        RankNumber = rank
+                    });
+			return Ok();
+		}
+
+	}
 }

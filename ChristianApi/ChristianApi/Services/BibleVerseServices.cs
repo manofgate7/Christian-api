@@ -2,6 +2,7 @@
 using ChristianApi.Models;
 using ChristianApi.Services.Interfaces;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using System.Text;
 
@@ -10,6 +11,7 @@ namespace ChristianApi.Services
     public class BibleVerseServices : IBibleVerseService
     {
         private List<BibleVerse> bibleVerseList = new List<BibleVerse>();
+        private List<BibleVerseRank> bibleVerseRanks = new List<BibleVerseRank>();
 
         private readonly IBibleVerseData _bibleVerseData;
 
@@ -19,6 +21,7 @@ namespace ChristianApi.Services
         {
             _bibleVerseData = bibleVerseData;
             bibleVerseList = _bibleVerseData.ReadFile();
+            bibleVerseRanks = _bibleVerseData.ReadRankFile();
         }
         
         public BibleVerse GetBibleVerseById(int bibleVerseId)
@@ -77,6 +80,57 @@ namespace ChristianApi.Services
             
         }
 
-       
-    }
+		public BibleVerseRank GetBibleVerseRankById(int bibleVerseRankId)
+		{
+			return bibleVerseRanks.FirstOrDefault(b => b.BibleVerseRankId == bibleVerseRankId) ?? new BibleVerseRank();
+		}
+
+		public List<BibleVerseRank> GetBibleVerseRanksByVerseId(int BibleVerseId)
+		{
+            return bibleVerseRanks.Where(b => b.BibleVerseId == BibleVerseId).ToList();
+		}
+
+		public double GetAverageBibleVerseRankForVerse(int bibleVerseId)
+		{
+            double result = 0;
+            var ranks = bibleVerseRanks
+                    .Where(b => b.BibleVerseId == bibleVerseId).ToList();
+            if(ranks.Count > 0)
+                result =  ranks.Average(b => b.RankNumber);
+            return result;
+		}
+
+        internal bool ValidateBibleVerseRank(BibleVerseRank bibleVerseRank)
+        {
+            if(!bibleVerseRank.ValidateBibleVerseId(bibleVerseList.Select(bl => bl.BibleVerseId).ToList()))
+            {
+                throw new ArgumentException("bad bible verse");
+            }
+            if (!bibleVerseRank.ValidateRankNumber())
+            {
+                throw new ArgumentException("Rank number is not between 1 and 5");
+            }
+
+            return true;
+        }
+
+		public void SaveBibleVerseRank(BibleVerseRank bibleVerseRank)
+		{
+            ValidateBibleVerseRank(bibleVerseRank);
+
+			//do an update
+			if (bibleVerseRank.BibleVerseRankId > 0)
+			{
+				bibleVerseRanks.RemoveAll(bl => bl.BibleVerseRankId == bibleVerseRank.BibleVerseRankId);
+			}
+			else
+			{
+				var max = bibleVerseRanks.Count > 0 ? bibleVerseRanks.Max(bl => bl.BibleVerseRankId) : 0;
+				bibleVerseRank.BibleVerseRankId = max + 1;
+			}
+			//insert new one
+			bibleVerseRanks.Add(bibleVerseRank);
+			_bibleVerseData.WriteFile(bibleVerseRank, true);
+		}
+	}
 }

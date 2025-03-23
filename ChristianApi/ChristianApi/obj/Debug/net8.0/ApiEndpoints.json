@@ -1,6 +1,41 @@
 [
   {
     "ContainingType": "ChristianApi.Controllers.BibleController",
+    "Method": "GetAverageRankByBibleVerse",
+    "RelativePath": "api/Bible/GetAverageRankByBibleVerse",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bibleVerseId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Double",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "ChristianApi.Controllers.BibleController",
     "Method": "GetBibleVerse",
     "RelativePath": "api/Bible/GetBibleVerse",
     "HttpMethod": "GET",
@@ -41,6 +76,76 @@
   },
   {
     "ContainingType": "ChristianApi.Controllers.BibleController",
+    "Method": "GetBibleVerseRankById",
+    "RelativePath": "api/Bible/GetBibleVerseRankById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ChristianApi.Models.BibleVerseRank",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "ChristianApi.Controllers.BibleController",
+    "Method": "GetRanksByBibleVerse",
+    "RelativePath": "api/Bible/GetRanksByBibleVerse",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bibleVerseId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ChristianApi.Models.BibleVerseRank, ChristianApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "ChristianApi.Controllers.BibleController",
     "Method": "SaveBibleVerse",
     "RelativePath": "api/Bible/SaveBibleVerse",
     "HttpMethod": "POST",
@@ -55,6 +160,32 @@
       {
         "Name": "verse",
         "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChristianApi.Controllers.BibleController",
+    "Method": "SaveBibleVerseRank",
+    "RelativePath": "api/Bible/SaveBibleVerseRank",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "verseRankId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "verseId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "rank",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

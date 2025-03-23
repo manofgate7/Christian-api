@@ -8,5 +8,11 @@ namespace ChristianApi.Services.Interfaces
         BibleVerse GetBibleVerseByVerseNumber(string verseNumber);
         BibleVerse GetBibleVerse(int? bibleVerseId, string? verseNumber);
         void SaveBibleVerse(BibleVerse bibleVerse);
+
+        BibleVerseRank GetBibleVerseRankById(int bibleVerseRankId);
+        List<BibleVerseRank> GetBibleVerseRanksByVerseId(int BibleVerseId);
+		double GetAverageBibleVerseRankForVerse(int bibleVerseId);
+        void SaveBibleVerseRank(BibleVerseRank bibleVerseRank);
+
     }
 }
