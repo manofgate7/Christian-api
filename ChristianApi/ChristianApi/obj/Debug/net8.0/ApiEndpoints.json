@@ -111,6 +111,35 @@
   },
   {
     "ContainingType": "ChristianApi.Controllers.BibleController",
+    "Method": "GetBibleVersesWithAverage",
+    "RelativePath": "api/Bible/GetBibleVersesWithAverage",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[System.Tuple\u00602[[ChristianApi.Models.BibleVerse, ChristianApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Double, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "ChristianApi.Controllers.BibleController",
     "Method": "GetRanksByBibleVerse",
     "RelativePath": "api/Bible/GetRanksByBibleVerse",
     "HttpMethod": "GET",

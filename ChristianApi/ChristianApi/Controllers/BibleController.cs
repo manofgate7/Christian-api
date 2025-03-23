@@ -94,5 +94,20 @@ namespace ChristianApi.Controllers
 			return Ok();
 		}
 
+
+		[HttpGet("GetBibleVersesWithAverage")]
+		[ProducesResponseType(StatusCodes.Status200OK)]
+		[ProducesResponseType(StatusCodes.Status404NotFound)]
+		public ActionResult<List<Tuple<BibleVerse, double>>> GetBibleVersesWithAverage()
+		{
+			var result = _verseServices.GetBibleVersesWithAverageRank();
+			if (result.Count == 0)
+			{
+				return NotFound();
+			}
+
+			return result;
+		}
+
 	}
 }

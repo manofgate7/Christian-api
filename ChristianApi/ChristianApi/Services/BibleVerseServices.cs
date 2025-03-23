@@ -132,5 +132,10 @@ namespace ChristianApi.Services
 			bibleVerseRanks.Add(bibleVerseRank);
 			_bibleVerseData.WriteFile(bibleVerseRank, true);
 		}
+
+		public List<Tuple<BibleVerse, double>> GetBibleVersesWithAverageRank()
+		{
+			return bibleVerseList.Select(bl => new Tuple<BibleVerse, double>(bl, GetAverageBibleVerseRankForVerse(bl.BibleVerseId))).ToList();
+		}
 	}
 }

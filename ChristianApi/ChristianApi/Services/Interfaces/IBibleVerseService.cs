@@ -11,6 +11,7 @@ namespace ChristianApi.Services.Interfaces
 
         BibleVerseRank GetBibleVerseRankById(int bibleVerseRankId);
         List<BibleVerseRank> GetBibleVerseRanksByVerseId(int BibleVerseId);
+        List<Tuple<BibleVerse, double>> GetBibleVersesWithAverageRank();
 		double GetAverageBibleVerseRankForVerse(int bibleVerseId);
         void SaveBibleVerseRank(BibleVerseRank bibleVerseRank);
 
