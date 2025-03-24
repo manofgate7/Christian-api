@@ -4,10 +4,13 @@ using ChristianApi.Services.Interfaces;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Text;
 
+[assembly: InternalsVisibleTo("TestChristianApi")]
 namespace ChristianApi.Services
 {
+    
     public class BibleVerseServices : IBibleVerseService
     {
         private List<BibleVerse> bibleVerseList = new List<BibleVerse>();
