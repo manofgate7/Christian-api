@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="c8f3a785-c2db-44fd-9184-a215890f3e5d" name="Grace@DESKTOP-QUUDGPR 2025-03-25 16:58:53" runUser="DESKTOP-QUUDGPR\Grace" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2025-03-25T16:58:53.5885450-06:00" queuing="2025-03-25T16:58:53.5885450-06:00" start="2025-03-25T16:58:51.1699972-06:00" finish="2025-03-25T16:58:53.5905446-06:00" />
+  <TestSettings name="default" id="bfa15ec4-0c7c-4428-b735-560241096232">
+    <Deployment runDeploymentRoot="Grace_DESKTOP-QUUDGPR_2025-03-25_16_58_53" />
+  </TestSettings>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="0" executed="0" passed="0" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-QUUDGPR" outcome="Warning" timestamp="2025-03-25T16:58:52.6983425-06:00">
+        <Text>Data collection : Unable to find a datacollector with friendly name 'Code Coverage'.</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-QUUDGPR" outcome="Warning" timestamp="2025-03-25T16:58:52.6983425-06:00">
+        <Text>Data collection : Could not find data collector 'Code Coverage'</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-QUUDGPR" outcome="Error" timestamp="2025-03-25T16:58:53.4945225-06:00">
+        <Text>An exception occurred while invoking executor 'executor://mstestadapter/v2': Could not load file or assembly 'System.Runtime, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.&#xD;
+Stack trace:&#xD;
+   at Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.TestDeployment.GetDeploymentInformation(String source)&#xD;
+   at Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.MSTestSettingsProvider.GetProperties(String source) in /_/src/Adapter/MSTestAdapter.PlatformServices/Services/SettingsProvider.cs:line 57&#xD;
+   at Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.Execution.TestExecutionManager.ExecuteTestsInSource(IEnumerable`1 tests, IRunContext runContext, IFrameworkHandle frameworkHandle, String source, Boolean isDeploymentDone) in /_/src/Adapter/MSTest.TestAdapter/Execution/TestExecutionManager.cs:line 262&#xD;
+   at Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.Execution.TestExecutionManager.ExecuteTests(IEnumerable`1 tests, IRunContext runContext, IFrameworkHandle frameworkHandle, Boolean isDeploymentDone) in /_/src/Adapter/MSTest.TestAdapter/Execution/TestExecutionManager.cs:line 172&#xD;
+   at Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.Execution.TestExecutionManager.RunTests(IEnumerable`1 tests, IRunContext runContext, IFrameworkHandle frameworkHandle, TestRunCancellationToken runCancellationToken) in /_/src/Adapter/MSTest.TestAdapter/Execution/TestExecutionManager.cs:line 111&#xD;
+   at Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.MSTestExecutor.&lt;&gt;c__DisplayClass8_0.&lt;RunTests&gt;b__1(TestRunCancellationToken testRunToken) in /_/src/Adapter/MSTest.TestAdapter/VSTestAdapter/MSTestExecutor.cs:line 57&#xD;
+   at Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.MSTestExecutor.&lt;&gt;c__DisplayClass11_0.&lt;RunTestsFromRightContext&gt;g__DoRunTests|0() in /_/src/Adapter/MSTest.TestAdapter/VSTestAdapter/MSTestExecutor.cs:line 126&#xD;
+   at Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.MSTestExecutor.RunTestsFromRightContext(IFrameworkHandle frameworkHandle, Action`1 runTestsAction) in /_/src/Adapter/MSTest.TestAdapter/VSTestAdapter/MSTestExecutor.cs:line 115&#xD;
+   at Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.MSTestExecutor.RunTests(IEnumerable`1 tests, IRunContext runContext, IFrameworkHandle frameworkHandle) in /_/src/Adapter/MSTest.TestAdapter/VSTestAdapter/MSTestExecutor.cs:line 57&#xD;
+   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionDecorators.SerialTestRunDecorator.RunTests(IEnumerable`1 tests, IRunContext runContext, IFrameworkHandle frameworkHandle) in /_/src/Microsoft.TestPlatform.Common/ExtensionDecorators/SerialTestRunDecorator.cs:line 36&#xD;
+   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.RunTestsWithTests.InvokeExecutor(LazyExtension`2 executor, Tuple`2 executorUri, RunContext runContext, IFrameworkHandle frameworkHandle) in /_/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/RunTestsWithTests.cs:line 72&#xD;
+   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.BaseRunTests.&lt;&gt;c__DisplayClass46_0.&lt;RunTestInternalWithExecutors&gt;b__0() in /_/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/BaseRunTests.cs:line 464&#xD;
+   at Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformThread.&lt;&gt;c__DisplayClass0_0.&lt;Run&gt;b__0() in /_/src/Microsoft.TestPlatform.PlatformAbstractions/net462/System/PlatformThread.cs:line 29&#xD;
+--- End of stack trace from previous location where exception was thrown ---&#xD;
+   at Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformThread.Run(Action action, PlatformApartmentState apartmentState, Boolean waitForCompletion) in /_/src/Microsoft.TestPlatform.PlatformAbstractions/net462/System/PlatformThread.cs:line 47&#xD;
+   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.BaseRunTests.TryToRunInStaThread(Action action, Boolean waitForCompletion) in /_/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/BaseRunTests.cs:line 680&#xD;
+   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.BaseRunTests.RunTestInternalWithExecutors(IEnumerable`1 executorUriExtensionMap, Int64 totalTests) in /_/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/BaseRunTests.cs:line 464&#xD;
+</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>
