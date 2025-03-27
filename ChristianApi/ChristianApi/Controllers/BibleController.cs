@@ -25,7 +25,7 @@ namespace ChristianApi.Controllers
         public ActionResult<BibleVerse> GetBibleVerse([FromQuery] int? id, [FromQuery] string? verseNumber )
         {
             
-            BibleVerse result =  _verseServices.GetBibleVerse(id, verseNumber);
+            BibleVerse result =  _verseServices.GetBibleVerse(id, verseNumber ?? string.Empty);
             if (result.BibleVerseId == 0)
             {
                return NotFound();
@@ -71,7 +71,7 @@ namespace ChristianApi.Controllers
 		[HttpGet("GetAverageRankByBibleVerse")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
-		public ActionResult<double> GetAverageRankByBibleVerse(int bibleVerseId)
+		public ActionResult<double?> GetAverageRankByBibleVerse(int bibleVerseId)
 		{
 			double result = _verseServices.GetAverageBibleVerseRankForVerse(bibleVerseId);
             if(result == 0)

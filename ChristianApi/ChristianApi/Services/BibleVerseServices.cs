@@ -1,4 +1,4 @@
-﻿using ChristianApi.Data;
+﻿using ChristianApi.Data.Interfaces;
 using ChristianApi.Models;
 using ChristianApi.Services.Interfaces;
 using Microsoft.AspNetCore.Components.Web;
@@ -36,7 +36,7 @@ namespace ChristianApi.Services
             return bibleVerseList.FirstOrDefault(b=> b.VerseNumber == verseNumber) ?? new BibleVerse();
         }
 
-        public BibleVerse GetBibleVerse(int? bibleVerseId, string? verseNumber)
+        public BibleVerse GetBibleVerse(int? bibleVerseId, string verseNumber)
         {
             BibleVerse bibleVerse = new();
             if (bibleVerseId.HasValue)

@@ -1,4 +1,4 @@
-using ChristianApi.Data;
+using ChristianApi.Data.Interfaces;
 using ChristianApi.Models;
 using ChristianApi.Services;
 using Moq;
