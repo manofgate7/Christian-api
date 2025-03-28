@@ -16,6 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IBibleVerseService, BibleVerseServices>();
 builder.Services.AddScoped<IBibleVerseData, BibleVerseData>();
 builder.Services.AddScoped<IFileManager, FileManager>();
+builder.Services.AddScoped<ISermonService, SermonService>();
 
 var app = builder.Build();
 
