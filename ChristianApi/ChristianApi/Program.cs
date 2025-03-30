@@ -4,6 +4,7 @@ using ChristianApi.Models;
 using ChristianApi.Services;
 using ChristianApi.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using OpenAI.ChatGpt;
 
 var builder = WebApplication.CreateBuilder(args);
 

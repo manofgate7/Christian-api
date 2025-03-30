@@ -35,3 +35,7 @@ D:\GitRepos\Christian-api\ChristianApi\ChristianApi\obj\Debug\net8.0\ChristianAp
 D:\GitRepos\Christian-api\ChristianApi\ChristianApi\obj\Debug\net8.0\ChristianApi.genruntimeconfig.cache
 D:\GitRepos\Christian-api\ChristianApi\ChristianApi\obj\Debug\net8.0\ref\ChristianApi.dll
 D:\GitRepos\Christian-api\ChristianApi\ChristianApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\GitRepos\Christian-api\ChristianApi\ChristianApi\bin\Debug\net8.0\OpenAI.dll
+D:\GitRepos\Christian-api\ChristianApi\ChristianApi\bin\Debug\net8.0\OpenAI.ChatGpt.dll
+D:\GitRepos\Christian-api\ChristianApi\ChristianApi\bin\Debug\net8.0\System.ClientModel.dll
+D:\GitRepos\Christian-api\ChristianApi\ChristianApi\bin\Debug\net8.0\System.Memory.Data.dll
