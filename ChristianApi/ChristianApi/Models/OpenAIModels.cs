@@ -34,35 +34,35 @@ namespace ChristianApi.Models
 	public class OpenAIError
 	{
 		[JsonPropertyName("message")]
-		public required string Message { get; set; }
+		public string? Message { get; set; }
 
 		[JsonPropertyName("type")]
-		public required string Type { get; set; }
+		public string? Type { get; set; }
 
 		[JsonPropertyName("param")]
-		public required string Param { get; set; }
+		public string? Param { get; set; }
 
 		[JsonPropertyName("code")]
-		public required string Code { get; set; }
+		public string? Code { get; set; }
 	}
 
 	public class OpenAIResponseDto
 	{
-		public required string Id { get; set; }
+		public string? id { get; set; }
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>")]
-		public required string @object { get; set; }
-		public int Created { get; set; }
-		public required string Model { get; set; }
-		public required List<Choice> Choices { get; set; }
-		public required Usage Usage { get; set; }
+		public string? @object { get; set; }
+		public int created { get; set; }
+		public string? model { get; set; }
+		public List<Choice>? choices { get; set; }
+		public Usage? usage { get; set; }
 	}
 
 	public class Choice
 	{
-		public int Index { get; set; }
-		public required Message Message { get; set; }
-		public required object Logprobs { get; set; }
-		public required string Finish_reason { get; set; }
+		public int index { get; set; }
+		public Message? message { get; set; }
+		public object? logprobs { get; set; }
+		public string? finish_reason { get; set; }
 	}
 	public class Usage
 	{
@@ -72,16 +72,16 @@ namespace ChristianApi.Models
 	}
 	public class OpenAIChoice
 	{
-		public required string Text { get; set; }
+		public required string text { get; set; }
 		public float probability { get; set; }
-		public required float[] Logprobs { get; set; }
-		public required int[] Finish_reason { get; set; }
+		public required float[] logprobs { get; set; }
+		public required int[] finish_reason { get; set; }
 	}
 
 	public class Message
 	{
-		public required string Role { get; set; }
-		public required string Content { get; set; }
+		public required string role { get; set; }
+		public required string content { get; set; }
 	}
 
 }

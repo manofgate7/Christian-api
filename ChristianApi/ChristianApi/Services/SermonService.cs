@@ -54,7 +54,7 @@ namespace ChristianApi.Services
 				throw new System.Exception(errorResponse?.Error.Message);
 			}
 			var data = JsonSerializer.Deserialize<OpenAIResponseDto>(resjson);
-			var responseText = data?.Choices[0].Message.content;
+			var responseText = data?.choices?.Count > 0 ?   data?.choices[0]?.message?.content : string.Empty;
 
 			return responseText ?? string.Empty;
 		}
