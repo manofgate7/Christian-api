@@ -397,4 +397,52 @@ public class BibleVerseServicesTest
 		var result = bibleVerseServices.GetBibleVerseRankById(4);
 		Assert.AreEqual(4, result.RankNumber);
 	}
+
+	[TestMethod]
+	public void GetBibleVerse_byVerseNumber()
+	{
+		var bibleVersese = new List<BibleVerse>()
+		{
+			new BibleVerse() {BibleVerseId = 1, VerseNumber = "Romans 3:10-12" , Verse = "As it is written: 'There is no one righteous, not even one; there is no one who understands; there is no one who seeks God. All have turned away, they have together become worthless; there is no one who does good, not even one." },
+			new BibleVerse() { BibleVerseId = 2, VerseNumber = "John 3:16", Verse = "For God so loved the world that he gave his only begotten Son, that whosoever believeth in him should not perish, but have eternal life" }
+		};
+		var bibleVerseRanks = new List<BibleVerseRank>() { new BibleVerseRank() {BibleVerseId = 1, BibleVerseRankId = 1, RankNumber = 1 },
+			new BibleVerseRank() {BibleVerseRankId= 2, BibleVerseId= 2, RankNumber= 2},
+		};
+		BibleVerseServices bibleVerseServices = SetUpService(bibleVersese, bibleVerseRanks);
+
+		BibleVerse bibleVerse = new BibleVerse()
+		{
+			BibleVerseId = 0,
+			Verse = "romans",
+			VerseNumber = "Romans 3:10-12"
+		};
+
+		var result = bibleVerseServices.GetBibleVerse(null, bibleVerse.VerseNumber);
+		Assert.AreEqual(1, result.BibleVerseId);
+	}
+
+	[TestMethod]
+	public void GetBibleVerse_byId()
+	{
+		var bibleVersese = new List<BibleVerse>()
+		{
+			new BibleVerse() {BibleVerseId = 1, VerseNumber = "Romans 3:10-12" , Verse = "As it is written: 'There is no one righteous, not even one; there is no one who understands; there is no one who seeks God. All have turned away, they have together become worthless; there is no one who does good, not even one." },
+			new BibleVerse() { BibleVerseId = 2, VerseNumber = "John 3:16", Verse = "For God so loved the world that he gave his only begotten Son, that whosoever believeth in him should not perish, but have eternal life" }
+		};
+		var bibleVerseRanks = new List<BibleVerseRank>() { new BibleVerseRank() {BibleVerseId = 1, BibleVerseRankId = 1, RankNumber = 1 },
+			new BibleVerseRank() {BibleVerseRankId= 2, BibleVerseId= 2, RankNumber= 2},
+		};
+		BibleVerseServices bibleVerseServices = SetUpService(bibleVersese, bibleVerseRanks);
+
+		BibleVerse bibleVerse = new BibleVerse()
+		{
+			BibleVerseId = 1,
+			Verse = "romans",
+			VerseNumber = "Romans 3:10-12"
+		};
+
+		var result = bibleVerseServices.GetBibleVerse(bibleVerse.BibleVerseId, bibleVerse.VerseNumber);
+		Assert.AreEqual(1, result.BibleVerseId);
+	}
 }

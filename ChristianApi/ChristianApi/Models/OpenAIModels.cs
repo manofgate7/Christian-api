@@ -70,13 +70,6 @@ namespace ChristianApi.Models
 		public int completion_tokens { get; set; }
 		public int total_tokens { get; set; }
 	}
-	public class OpenAIChoice
-	{
-		public required string text { get; set; }
-		public float probability { get; set; }
-		public required float[] logprobs { get; set; }
-		public required int[] finish_reason { get; set; }
-	}
 
 	public class Message
 	{
